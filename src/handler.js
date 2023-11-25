@@ -119,12 +119,9 @@ const getAllBooks = (request, h) => {
 };
 
 const getBookById = (request, h) => {
-  const {
-    id,
-  } = request.params;
-
+  const { bookId } = request.params;
   // eslint-disable-next-line no-shadow
-  const book = books.find((book) => book.id === id);
+  const book = books.find((book) => book.id === bookId);
 
   if (book) {
     return {
@@ -134,7 +131,6 @@ const getBookById = (request, h) => {
       },
     };
   }
-
   const response = h.response({
     status: 'fail',
     message: 'Buku tidak ditemukan',
